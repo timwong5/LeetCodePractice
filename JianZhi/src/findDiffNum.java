@@ -73,6 +73,8 @@ public class findDiffNum {
         return -1;
     }
 
+    //Todo ¶þ·Ö·¨
+
 
 
     public static void main(String[] args) {
