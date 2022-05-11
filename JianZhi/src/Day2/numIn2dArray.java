@@ -1,4 +1,6 @@
-public class findInTwoDimensionalArray {
+package Day2;
+
+public class numIn2dArray {
     //在一个 n * m 的二维数组中，每一行都按照从左到右递增的顺序排序，每一列都按照从上到下递增的顺序排序
     // 请完成一个高效的函数，输入这样的一个二维数组和一个整数，判断数组中是否含有该整数。
     //
@@ -18,7 +20,6 @@ public class findInTwoDimensionalArray {
 
     //分析过程见 先找出规律 指找二维数组中的四个角的一个值 例如右上角 然后以它为标准比较要找的数字
     //需求值比标准值小的话直接排除标准值所在列（肯定在左边） 需求值比标准值大直接排除标准值所在的行（肯定在下边）
-    class solution{
         public boolean findNumberIn2DArray(int[][] matrix, int target){
             //matrix.length表示行数
             //matrix[0].length表示列数
@@ -44,5 +45,4 @@ public class findInTwoDimensionalArray {
             }
             return false;
         }
-    }
 }
