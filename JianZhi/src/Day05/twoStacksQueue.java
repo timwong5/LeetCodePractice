@@ -6,7 +6,7 @@ package Day05;
 
 import java.util.Stack;
 
-public class twoStacksQuery {
+public class twoStacksQueue {
 
     Stack<Integer> s1 = new Stack();
     Stack<Integer> s2 = new Stack();
