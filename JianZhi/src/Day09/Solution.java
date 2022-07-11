@@ -5,6 +5,9 @@ import java.util.*;
 
 
 public class Solution {
+
+
+    //Todo 理解字典树解法 有点难度
     public String replaceWords(List<String> dictionary, String sentence) {
 
 //        Set<String> dictionarySet = new HashSet<>();
@@ -63,6 +66,8 @@ public class Solution {
         }
         return root.toString();
     }
+
+
 
 }
 
