@@ -1,5 +1,7 @@
 package Day11;
 
+import java.util.LinkedList;
+
 /**
  * @author timwong5
  * @date 2022-07-11 14:34
@@ -153,4 +155,43 @@ public class BinaryTreeTest<Item> {
     public int getNodeSum() {
         return nodeSum;
     }
+
+
+    /**
+     * 递归前序遍历
+     * @param node
+     */
+    public void preOrder(Node<Item> node){
+        if (node == null){
+            return;
+        }
+        else {
+            preOrder(node.leftChild);
+            preOrder(node.rightChild);
+        }
+    }
+
+    public void preOrderNoRecu(Node<Item> node){
+        // 用栈保存已经访问过的结点，便于返回到父结点
+        LinkedList<Node<Item>> stack = new LinkedList<>();
+        // 当前结点不为空，或者为空但有可以返回的父结点（可以进行pop操作）都可以进入循环
+        while (root!= null || !stack.isEmpty()){
+            // 只要当前结点，就打印，同时入栈
+            while (root != null){
+                stack.push(root);
+                System.out.println(root.getData()+" ");
+                root = root.leftChild;
+            }
+            // 上面while终止说明当前结点为空；返回到父结点并处理它的右子树。由于要执行pop操作，先判空
+            if (!stack.isEmpty()){
+                // 返回到父结点。由于左孩子为空返回时已经弹出过父结点了，所以若是由于右孩子为空返回，会一次性返回到多层
+                root = stack.pop();
+                // 开始右子树的大循环（第一个while)
+                root = root.rightChild;
+            }
+        }
+
+
+    }
+
 }
