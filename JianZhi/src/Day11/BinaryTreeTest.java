@@ -221,19 +221,34 @@ public class BinaryTreeTest<Item> {
      */
     public void inOrderNoRec(Node<Item> node){
         LinkedList<Node<Item>> stack = new LinkedList<>();
+        //left -> root -> right
         while (root != null || !stack.isEmpty()){
             while (root != null){
                 stack.push(node);
                 node = node.leftChild;
-                System.out.println(root.getData()+" ");
 
             }
+            node = stack.pop();
+            System.out.println(node.getData()+" ");
+            node = node.rightChild;
         }
     }
 
-    public static void main(String[] args) {
-
+    public void postOrder(Node<Item> node){
+        if (node == null){
+            return;
+        }
+        // left -> right -> root
+        else {
+            postOrder(node.leftChild);
+            postOrder(node.rightChild);
+            System.out.println(node.getData()+" ");
+        }
     }
+
+    //Todo postOrderNoRecu
+
+
 
 
 }
