@@ -1,5 +1,9 @@
 package Day11;
 
+import java.text.DateFormat;
+import java.text.Format;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.LinkedList;
 
 /**
@@ -166,6 +170,8 @@ public class BinaryTreeTest<Item> {
             return;
         }
         else {
+            //root -> left -> right
+            System.out.println(node.getData()+" ");
             preOrder(node.leftChild);
             preOrder(node.rightChild);
         }
@@ -176,7 +182,7 @@ public class BinaryTreeTest<Item> {
         LinkedList<Node<Item>> stack = new LinkedList<>();
         // 当前结点不为空，或者为空但有可以返回的父结点（可以进行pop操作）都可以进入循环
         while (root!= null || !stack.isEmpty()){
-            // 只要当前结点，就打印，同时入栈
+            // 只要存在当前结点，就打印，同时入栈
             while (root != null){
                 stack.push(root);
                 System.out.println(root.getData()+" ");
@@ -189,9 +195,45 @@ public class BinaryTreeTest<Item> {
                 // 开始右子树的大循环（第一个while)
                 root = root.rightChild;
             }
+
         }
 
 
     }
+
+    public void inOrder(Node<Item> node){
+        if (node== null){
+            return;
+        }
+
+        else {
+            //left -> root -> right
+            inOrder(node.leftChild);
+            System.out.println(node.getData()+" ");
+            inOrder(node.rightChild);
+        }
+
+    }
+
+    /**
+     * 中序非递归
+     * @param node
+     */
+    public void inOrderNoRec(Node<Item> node){
+        LinkedList<Node<Item>> stack = new LinkedList<>();
+        while (root != null || !stack.isEmpty()){
+            while (root != null){
+                stack.push(node);
+                node = node.leftChild;
+                System.out.println(root.getData()+" ");
+
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+
+    }
+
 
 }
